@@ -1,13 +1,4 @@
-CREATE TABLE registration (
-   id INT AUTO_INCREMENT PRIMARY KEY,
-   firstName VARCHAR(100),
-   lastName VARCHAR(100),
-   gender CHAR(1),
-   email VARCHAR(100),
-   password VARCHAR(100),
-   number VARCHAR(15)
-);
-
+.env
 
 APP_PORT=3000
 MYSQL_HOST=localhost
@@ -27,12 +18,32 @@ POSTGRES_PORT=5432
 
 
 
-CREATE TABLE users (
-   id INT AUTO_INCREMENT PRIMARY KEY,
-   firstName VARCHAR(100),
-   lastName VARCHAR(100),
-   gender VARCHAR(10),
-   email VARCHAR(100) UNIQUE,
-   password VARCHAR(100),
-   number VARCHAR(20)
-);
+
+create table
+POST  http://localhost:3000/create-table
+
+user register
+POST  http://localhost:3000/register
+ {
+   "firstName": "Test01",
+   "lastName": "Test01",
+   "gender": "M",
+   "email": "Test01.doe@example.com",
+   "password": "123456",
+   "number": "1234567890"
+ }
+
+fetch users
+GET  http://localhost:3000/users
+
+fetch user by id
+GET  http://localhost:3000/users/1
+
+update
+PUT  http://localhost:3000/users/3
+
+delete user
+DEL http://localhost:3000/users/2
+
+login
+POST http://localhost:3000/login
